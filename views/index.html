@@ -4,9 +4,11 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
-  <link rel="stylesheet" href="">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/style.css">
   <script src="js/jquery.js"></script>
-
+  <script src="js/script.js"></script>
 </head>
 <body>
 
@@ -14,29 +16,38 @@
 {{#hello}}
 {{#lead}}
 {{#sections}}
-<div class="testClass">
-<h2>{{{text}}}</h2>
-</div>
+<h4>{{{text}}}</h4>
 {{/sections}}
 {{/lead}}
 {{/hello}}
 
-
-
-<div class="appendHere">testing</div>
-
 <script>
-  $('body').css('color', 'green')
 $('a').contents().unwrap();
 
+$('*')
+  .contents()
+ .filter(function() {
+return this.nodeType === 3; //Node.TEXT_NODE
+  })
+ .wrap('<span class="test123"></span>')
 
-// var strTest= $('.testClass').text()
-//   $('.testClass').append(strTest)
+
+
+// $('body').contents().addClass('testing123')
+
+// var alltextnodes=function(el){
+// var n
+// var a=[]
+// walk=document.createTreeWalker(el,NodeFilter.SHOW_TEXT,null,false);
+//   while(n=walk.nextNode()) a.push(n);
+//   return a}
+// console.log(alltextnodes(document.body))
 
   </script>
 
 
-<script src="js/jquery.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/script.js"></script>
 
 
 
