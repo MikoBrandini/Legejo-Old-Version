@@ -24,17 +24,19 @@ console.log("Callooh! Callay! Server is running on " + port);
 
 
 app.get('/', function (req, res) {
-request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/hindio', function (error, response, body) {
+request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/usono', function (error, response, body) {
     if(error){
         return console.log('Error:', error);
     }
     if(response.statusCode !== 200){
         return console.log('Invalid Status Code Returned:', response.statusCode);
 }
-
+          var parsingThing=JSON.parse(body);
+             res.render('index',  {"hello" : parsingThing});
 })
 ;})
-
+//la subo donas al mi la bezonajxon.
+//https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/usono
 
 
 

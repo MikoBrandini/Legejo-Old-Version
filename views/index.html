@@ -1,8 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="">
+  <script src="js/jquery.js"></script>
+
+</head>
+<body>
+
 
 {{#hello}}
 {{#lead}}
 {{#sections}}
-{{{text}}}
+<div class="testClass">
+<h2>{{{text}}}</h2>
+</div>
 {{/sections}}
 {{/lead}}
 {{/hello}}
+
+
+
+<div class="appendHere">testing</div>
+
+<script>
+  $('body').css('color', 'green')
+$('a').contents().unwrap();
+
+
+// var strTest= $('.testClass').text()
+//   $('.testClass').append(strTest)
+
+  </script>
+
+
+<script src="js/jquery.js"></script>
+
+
+
+</body>
+</html>
