@@ -26,10 +26,29 @@ $('a').contents().unwrap();
 
 $('*')
   .contents()
- .filter(function() {
-return this.nodeType === 3; //Node.TEXT_NODE
+ .filter(function(x) {
+return this.nodeType === 3;//Node.TEXT_NODE
   })
- .wrap('<span class="test123"></span>')
+.wrap('<span class="test123"></span>')
+$('.test123').css('color', 'green')
+
+$('.test123').each(function(x){
+if ($('.test123').is(':empty'))
+  $(this).remove()
+  console.log("removal in process")
+})
+
+
+$('.test123').each(function(x){
+
+  console.log( this)
+return $('.test123').text().split(' ')
+})
+
+
+
+
+
 
 
 
