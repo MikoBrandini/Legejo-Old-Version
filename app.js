@@ -6,6 +6,8 @@ var pgp = require('pg-promise')();
 var mustacheExpress = require('mustache-express');
 var request = require('request');
 var rp = require('request-promise');
+var fs = require('fs');
+
 
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
@@ -22,6 +24,14 @@ app.listen(port)
 console.log("Callooh! Callay! Server is running on " + port);
 
 
+
+// app.get('/', function(request, response){
+//   var tempFile="antologio1.pdf";
+//   fs.readFile(tempFile, function (err,data){
+//      response.contentType("application/pdf");
+//      response.send(data);
+//   });
+// });
 
 app.get('/', function (req, res) {
 request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/usono', function (error, response, body) {
