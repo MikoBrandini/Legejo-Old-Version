@@ -1,4 +1,4 @@
-// $('a').contents().unwrap();
+$('a').contents().unwrap();
 
 
 
@@ -20,12 +20,12 @@
 
 
 
-// $( "p" )
-//   .contents()
-//   .filter(function(){
-//     return this.nodeType !== 1;
-//   })
-//   .wrap( "<a class='test123'></a>" );
+$( "p" )
+  .contents()
+  .filter(function(){
+    return this.nodeType !== 1;
+  })
+  .wrap( "<a class='test123'></a>" );
 
 // splittedText=$(".test123").text().split(" ")
 // console.log($(".test123").text() + "<br>")

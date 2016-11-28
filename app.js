@@ -7,7 +7,9 @@ var mustacheExpress = require('mustache-express');
 var request = require('request');
 var rp = require('request-promise');
 var fs = require('fs');
+var cheerio = require('cheerio');
 
+var util = require('util');
 
 app.engine('html', mustacheExpress());
 app.set('view engine', 'html');
@@ -42,7 +44,29 @@ request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/usono', funct
         return console.log('Invalid Status Code Returned:', response.statusCode);
 }
           var parsingThing=JSON.parse(body);
-             res.render('index',  {"hello" : parsingThing});
+          console.log('parsingThing:');
+          console.log(util.inspect(parsingThing));
+          console.log('some text:');
+          console.log(parsingThing.lead.sections[0].text);
+
+          var $ = cheerio.load(parsingThing.lead.sections[0].text);
+          console.log('cheerio test:');
+          console.log(util.inspect($.root().text()));
+          //console.log($('*').map(function(i, el){return $(el).text();}).get());
+
+
+             res.render('index',
+                {"hello" : parsingThing,
+                  "someText": $.root()
+                    .text()
+                    .split('\n\n')
+                    .map(function(el){
+                      var el2 = el;
+                      return '<p>' + el2 + '</p>';
+                    })
+                    .join('')
+                }
+              );
 })
 ;})
 //la subo donas al mi la bezonajxon.

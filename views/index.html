@@ -12,15 +12,23 @@
 </head>
 <body>
 
+<h1>The Text:</h1>>
+
+{{{someText}}}
+
+<h1>more stuff</h1>>
 
 {{#hello}}
   {{#lead}}
-  {{displaytitle}}
-    {{#sections}}
+   <span class="ten columns  offset-by-one"><h1>{{displaytitle}}</h1></span>
+ <div> {{description}}
+     <span class="ten columns  offset-by-one">{{#sections}}</span>
       <span class="ten columns  offset-by-one">{{{text}}}</span>
     {{/sections}}
 
   {{/lead}}
+
+
 
 {{#remaining}}
 {{#sections}}
