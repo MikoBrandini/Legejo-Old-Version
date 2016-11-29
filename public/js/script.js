@@ -1,15 +1,46 @@
 // $('a').contents().unwrap();
 
 
+$( ".textHolders" ).each(function( index ) {
+  // console.log( index + ": " + $( this ).text() );
+  referencePoint=$(this)
+  var text=$(this).text()
+  var words=text.split(' ')
 
-var text = $('#textHolder').text()
-var words = text.split(' ')
-console.log(words)
+ //  console.log(words)
+ $(this).text(' ')
 
-$('#textHolder').text(' ')
-    words.forEach(function(word){
+ words.forEach(function(word){
 
-  return $('#textHolder').append("<span class = 'word'>"+word+ " " +"</span>") })
+  return $(referencePoint).append("<span class = 'word'>"+word+ " " +"</span>") })
+});
+
+
+
+//get definition
+$('.word').click(function(event) {
+ vorto=$(this).text()
+    $.ajax({
+      "url": "http://www.simplavortaro.org//api/v1/trovi/"+vorto,
+      "method": "GET",
+      "success": function(data){
+        console.log('ajax call was good.')
+        console.log(data)
+        // console.log(typeof(data))
+        // console.log(JSON.stringify(data))
+      }
+    })
+});
+
+
+// var text = $('#textHolder').text()
+// var words = text.split(' ')
+// console.log(words)
+
+// $('#textHolder').text(' ')
+//     words.forEach(function(word){
+
+//   return $('#textHolder').append("<span class = 'word'>"+word+ " " +"</span>") })
 
 
 
@@ -155,11 +186,11 @@ $('#textHolder').text(' ')
 
 
 
-$('#textHolder').children('p') .contents()
+// $('#textHolder').children('p') .contents()
 
-console.log(
-$('#textHolder').children('p') .contents()
-)
+// console.log(
+// $('#textHolder').children('p') .contents()
+// )
 // .map(function(x){
 //   wordsParaphs=$(this).text().split(' ')
 
