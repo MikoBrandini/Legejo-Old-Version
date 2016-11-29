@@ -1,4 +1,53 @@
-$('a').contents().unwrap();
+// $('a').contents().unwrap();
+
+
+
+var text = $('#textHolder').text()
+var words = text.split(' ')
+console.log(words)
+$('#textHolder').text(' ')
+    words.forEach(function(word){
+       console.log('hey there')
+  return $('#textHolder').append("<span class = 'word'>"+word+ " " +"</span>") })
+
+// words.forEach(function(word){
+//   var clickWord = $("<span class = 'word "+word+"''>"+word+"</span>")
+//   $('#textHolder').append(clickWord)
+// })
+
+//        res.render('index',
+//                 {"hello" : parsingThing,
+//                   "someText": $.root()
+//                     .text()
+//                     .split('\n\n')
+//                     .map(function(el){
+
+//                       return  '<p>'+el +'</p>'
+//                     })
+//                     .join('')
+
+
+
+
+// $('*')
+//   .contents()
+//                     // .text()
+//  .filter(function(x) {
+//   // console.log("this is this hey there "+ this)
+// return this.nodeType === 3;//Node.TEXT_NODE
+//   })
+
+
+
+// console.log($('*').contents() .filter(function(x) {
+//   // console.log("this is this hey there "+ this)
+// return this.nodeType === 3;//Node.TEXT_NODE
+//   }))
+
+
+
+// .wrap('<span class="test123"></span>')
+// $('.test123').css('color', 'green')
 
 
 
@@ -7,25 +56,12 @@ $('a').contents().unwrap();
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-$( "p" )
-  .contents()
-  .filter(function(){
-    return this.nodeType !== 1;
-  })
-  .wrap( "<a class='test123'></a>" );
+// $( "*" )
+//   .contents()
+//   .filter(function(){
+//     return this.nodeType === 3;
+//   })
+//   .wrap( "<span class='test123'></span>" );
 
 // splittedText=$(".test123").text().split(" ")
 // console.log($(".test123").text() + "<br>")
@@ -45,13 +81,7 @@ $( "p" )
 // })
 // console.log(arr)
 
-// $('*')
-//   .contents()
-//  .filter(function(x) {
-// return this.nodeType === 3;//Node.TEXT_NODE
-//   })
-// .wrap('<span class="test123"></span>')
-// $('.test123').css('color', 'green')
+
 
 // $('.test123').each(function(x){
 // if ($('.test123').is(':empty')){

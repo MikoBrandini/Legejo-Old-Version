@@ -44,15 +44,15 @@ request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/usono', funct
         return console.log('Invalid Status Code Returned:', response.statusCode);
 }
           var parsingThing=JSON.parse(body);
-          console.log('parsingThing:');
-          console.log(util.inspect(parsingThing));
-          console.log('some text:');
-          console.log(parsingThing.lead.sections[0].text);
+          // console.log('parsingThing:');
+          // console.log(util.inspect(parsingThing));
+          // console.log('some text:');
+          // console.log(parsingThing.lead.sections[0].text);
 
           var $ = cheerio.load(parsingThing.lead.sections[0].text);
-          console.log('cheerio test:');
-          console.log(util.inspect($.root().text()));
-          //console.log($('*').map(function(i, el){return $(el).text();}).get());
+          // console.log('cheerio test:');
+          // console.log(util.inspect($.root().text()));
+          // console.log($('*').map(function(i, el){return $(el).text();}).get());
 
 
              res.render('index',
@@ -61,10 +61,23 @@ request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/usono', funct
                     .text()
                     .split('\n\n')
                     .map(function(el){
-                      var el2 = el;
-                      return '<p>' + el2 + '</p>';
+
+                      return  '<p>'+el +'</p>'
                     })
                     .join('')
+
+                    // .split('\n')
+                    // .map(function(t){
+                    //   return '<span class="heyClowns">' + t  +'</span>'+ ' '
+                    // })
+                    // .join('')
+
+
+                //     .split('</table>')
+                //     .map(function(t){
+                //       return '</table>'
+                //     })
+                //     .join('')
                 }
               );
 })
