@@ -61,10 +61,14 @@ request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/usono', funct
                     .text()
                     .split('\n\n')
                     .map(function(el){
-
-                      return  '<p>'+el +'</p>'
+                      return  '<p> '+el +'</p>'
                     })
                     .join('')
+                }
+              );
+})
+;})
+
 
                     // .split('\n')
                     // .map(function(t){
@@ -78,10 +82,6 @@ request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/usono', funct
                 //       return '</table>'
                 //     })
                 //     .join('')
-                }
-              );
-})
-;})
 //la subo donas al mi la bezonajxon.
 //https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/usono
 
