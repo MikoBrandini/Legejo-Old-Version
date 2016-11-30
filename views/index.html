@@ -1,50 +1,57 @@
 
 
-
-
-
-
 <!doctype html>
 <html>
   <head>
-<!--     <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css"> -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Rye' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-<h1>Bonvenon</h1>
-<hr>
-<h2>Ĉi tiu estas retejo por diskuti la enhavon de vikipediaj artikoloj.</h2>
 
- <h1>Super Secure Signup Page</h1>
-        <div class="col-lg-6 center-block">
-          <div class="well bs-component">
-            <form class="form-horizontal" action="/signup" method="post">
-              <fieldset>
-                <legend>Sign Up</legend>
-                <div class="form-group">
-                  <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                  <div class="col-lg-10">
-                    <input name="email" type="text" class="form-control" id="inputEmail" placeholder="Email">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="inputPassword" class="col-lg-2 control-label">Password</label>
-                  <div class="col-lg-10">
-                    <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="col-lg-10 col-lg-offset-2">
-                    <button type="submit" class="btn btn-primary">Join!</button>
-                  </div>
-                </div>
-              </fieldset>
-            </form>
 
+     <div class="border-container">
+       {{#logged_in}}
+       <div class="col-lg-6 center-block">
+         <div class="alert alert-dismissible alert-warning">
+           <h4>Welcome {{email}}!</h4>
+           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi aliquam tellus vitae nulla tristique, quis laoreet nulla fringilla.</p>
+         </div>
+         <a href="/logout">Logout!</a>
+       </div>
+       {{/logged_in}}
+       {{^logged_in}}
+       <div class="col-lg-6 center-block">
+         <div class="well bs-component">
+           <form class="form-horizontal" action="/login" method="post">
+             <fieldset>
+               <legend>Ensalutejo</legend>
+               <div class="form-group">
+                 <label for="inputEmail" class="col-lg-2 control-label">Retpoŝto</label>
+                 <div class="col-lg-10">
+                   <input name="email" type="text" class="form-control" id="inputEmail" placeholder="Retpoŝto">
+                 </div>
+               </div>
+               <div class="form-group">
+                 <label for="inputPassword" class="col-lg-2 control-label">Pasvorto</label>
+                 <div class="col-lg-10">
+                   <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Pasvorto">
+                 </div>
+               </div>
+               <div class="form-group">
+                 <div class="col-lg-10 col-lg-offset-2">
+                   <button type="submit" class="btn btn-primary">Ensalutu</button>
+                 </div>
+               </div>
+             </fieldset>
+           </form>
+       {{/logged_in}}
+     </div>
+   </div>
+<h3>Aliĝu</h3>
+<a href="/signup">Aliĝejo</a></h3>
 <h3>La Nuna Artikolo:
 <a href="/wiki/template">Usono</a></h3>
 

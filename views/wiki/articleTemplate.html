@@ -5,31 +5,34 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title></title>
   <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/skeleton.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<div id="popUpContainer" class="col-12 center-block container">
+<button class="close">&times;</button>
+<div id="popUpTemplate">
+</div>
+<button>Savu la vorton</button>
+</div>
 
-<!-- <div id="popUpTemplate">
-
-<button>Hey I am a button</button>
-</div> -->
-
+<div class="col-10 center-block  container">
 {{#wikiData}}
   {{#lead}}
-   <span class="ten columns  offset-by-one text textHolders" ><h1>{{displaytitle}}</h1></span>
-     <span class="ten columns  offset-by-one text textHolders" >{{description}}</span>
-     <span class="ten columns  offset-by-one textHolders">{{#sections}}</span>
-      <span class="ten columns  offset-by-one textHolders">{{{text}}}</span>
+     <span class="col-md-10 textHolders">{{displaytitle}}</span>
+     <span class="col-md-10 textHolders " >{{description}}</span>
+     <span class="col-md-10 textHolders ">{{#sections}}</span>
+      <span class="col-md-10 textHolders ">{{{text}}}</span>
     {{/sections}}
   {{/lead}}
   {{#remaining}}
       {{#sections}}
-        <span class="ten columns  offset-by-one textHolders"> {{{text}}}</span>
+        <span class="col-md-10  textHolders"> {{{text}}}</span>
       {{/sections}}
   {{/remaining}}
 {{/wikiData}}
   <script src="/js/jquery.js"></script>
   <script src="/js/script.js"></script>
+</div>
 </body>
 </html>

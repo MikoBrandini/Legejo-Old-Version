@@ -102,9 +102,6 @@ app.post('/login', function(req, res){
 })
 
 
-
-
-
 //user stuff code block ending
 
 
