@@ -36,7 +36,8 @@ $('.wikipediaArticleText').click(function(event) {
           "method": "GET",
           "success": function(dataB){
 
-
+            //set up save button
+            //define listener here to grab dataB
       $('#popUpTemplate').append('<h1>'+dataB.vorto+'</h1>' )
      dataB.difinoj.forEach(function(x){return    $('#popUpTemplate').append('<p class="popUpText">'+x.difino+'</p>' )})
           }

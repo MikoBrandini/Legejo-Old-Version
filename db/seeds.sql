@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS users CASCADE;
 
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
-  username VARCHAR(255),
+  name VARCHAR(255),
   email VARCHAR (255),
   password_digest VARCHAR(255)
 );
