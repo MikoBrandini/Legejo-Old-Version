@@ -13,4 +13,10 @@ table{
   color:  white;
 }
 
+#popUpTemplate{
+  display:  none;
+  background-color: yellow;
+width:  500px;
+z-index: 1;
 
+}
