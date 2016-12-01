@@ -21,9 +21,14 @@ opacity:  1;
 }
 #popUpTemplate{
   background-color:  green;
+    height: 400px;
+  overflow-y: scroll;
 }
 /* Made two seperate classes for the text below in order to keep their functionalities apart.
 I don't want the functions that work for one, to work for the other.  */
-.wikipediaArticleText, .templateText{
+.wikipediaArticleText, .popUpText{
   font-size:  40px;
 }
+
+.close{
+font-size: 100px;}

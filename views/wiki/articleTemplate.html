@@ -9,12 +9,61 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+
+
+
+
+
 <div id="popUpContainer" class="col-12 center-block container">
 <button class="close">&times;</button>
 <div id="popUpTemplate">
 </div>
-<button>Savu la vorton</button>
+
+<!-- below I will write code to HTTP post information into the "words" table in my DB
+ -->
+
+
+
+            <form class="form-horizontal" action="/addword" method="post">
+              <fieldset>
+
+                <legend>Add Word</legend>
+
+
+                <div class="form-group">
+                  <label for="inputName" class="col-lg-2 control-label">Name</label>
+                  <div class="col-lg-10">
+                    <input name="name" type="text" class="form-control" id="name" placeholder="Nomo">
+                  </div>
+                </div>
+
+
+                <div class="form-group">
+                  <div class="col-lg-10 col-lg-offset-2">
+                    <button type="submit" class="btn btn-primary">Savu la vorton!</button>
+                  </div>
+                </div>
+
+
+              </fieldset>
+            </form>
+
+
+
+
+
 </div>
+
+
+
+
+
+
+
+
+
+
+
 
 <div class="col-10 center-block  container">
 {{#wikiData}}

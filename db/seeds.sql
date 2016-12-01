@@ -1,5 +1,5 @@
 DROP TABLE IF EXISTS users CASCADE;
--- DROP TABLE IF EXISTS students CASCADE;
+DROP TABLE IF EXISTS lists CASCADE;
 
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
@@ -8,4 +8,9 @@ CREATE TABLE users(
   password_digest VARCHAR(255)
 );
 
--- INSERT INTO users (username, email, password) VALUES ('admin', 'admin@ga.co', 'password123'), ('ludoviko', 'doktoro@ga.co', 'revanto');
+CREATE TABLE lists(
+id SERIAL PRIMARY KEY,
+word VARCHAR(255),
+definition VARCHAR(255)
+user_id INTEGER REFERENCES users(id)
+)

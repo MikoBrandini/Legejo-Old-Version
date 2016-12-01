@@ -92,6 +92,7 @@ app.post("/signup", function(req, res) {
 
 //from the get thing up there, it redirects me up here.
 app.post('/login', function(req, res) {
+  //there is no actual /login that's accessible to the client.
     //we need to grab stuff off the body
     //grabing from forms
     var data = req.body;
@@ -133,10 +134,21 @@ app.post('/login', function(req, res) {
 
 
 
-
-
-
-
+//how to save a new word
+//
+app.post("/addWord", function(req, res) {
+    //save user to the database
+    //ni bezonas savi uzanton kaj poste meti la kasxvorton en la datumbazo
+    var data = req.body
+        db.none(
+            "INSERT INTO words (word, definition,user_id) VALUES ($1, $2, $3)", [data.name, data.email, hash]
+        ).then(function() {
+            console.log("user created")
+                res.render('index')
+        })
+    })
+//
+//end of saving a new word
 
 
 //render index page
