@@ -45,13 +45,16 @@ app.use(session({
 app.get("/", function(req, res) {
   var logged_in;
   var email;
+  var id;
   if (req.session.user) {
     logged_in = true;
     email = req.session.user.email;
+    id = req.session.user.id
   }
   var data = {
     "logged_in": logged_in,
-    "email": email
+    "email": email,
+    "id": id
       //variables columns from table
   }
   res.render('index', data)
@@ -120,8 +123,6 @@ app.post('/login', function(req, res) {
   })
 })
 
-
-
 //end of sign up and log in stuff
 
 
@@ -132,8 +133,9 @@ app.post("/addWord", function(req, res) {
     //save user to the database
     //ni bezonas savi uzanton kaj poste meti la kasxvorton en la datumbazo
     var data = req.body
+    theId=req.session.user.id
     db.none(
-        "INSERT INTO lists (word, definition, user_id) VALUES ($1, $2, $3)", [data.word, data.definition, ]
+        "INSERT INTO lists (word, definition, user_id) VALUES ($1, $2, $3)", [data.word, data.definition, theId]
       )
       .catch(function() {
         console.log("word not added, error.")
@@ -148,12 +150,26 @@ app.post("/addWord", function(req, res) {
 
 
 //render index page
-app.get('/', function(req, res) {
-  res.render('index');
-});
+// app.get('/', function(req, res) {
+//   res.render('index');
+// });
 
-
-
+//this renders the article available to the user
+app.get('/wiki/template', function(req, res) {
+  request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/francio', function(error, response, body) {
+    if (error) {
+      return console.log('Error:', error);
+    }
+    if (response.statusCode !== 200) {
+      return console.log('Invalid Status Code Returned:', response.statusCode);
+    }
+    var parsingThing = JSON.parse(body);
+    res.render('wiki/articleTemplate', {
+      "wikiData": parsingThing
+    })
+  })
+})
+//this renders the wikipedia article
 app.get('/wiki/template', function(req, res) {
   request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/francio', function(error, response, body) {
     if (error) {
@@ -170,5 +186,18 @@ app.get('/wiki/template', function(req, res) {
 })
 
 
-//la subo donas al mi la bezonajxon.
-//https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/usono
+//this renders the list of words belonging to the currently logged in user
+app.get('/words/:user_id',function(req, res){
+    user_id=req.session.user.id
+
+  db.many('SELECT * FROM lists where user_id= $1', [user_id])
+    .catch(function(){
+    console.log("error in word list rendering, sorry. ")
+  })
+  .then(function(data){
+    res.render('words/words:show', {"vortoj":data});
+
+  });
+
+});
+

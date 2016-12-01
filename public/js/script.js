@@ -1,4 +1,3 @@
-// This is just a sample script. Paste your real code (javascript or HTML) here.
 $(".textHolders").each(function(index) {
   referencePoint = $(this)
   var text = $(this).text()
@@ -32,7 +31,6 @@ $('.wikipediaArticleText').click(function(event) {
         "url": "http://www.simplavortaro.org/api/v1/vorto/" + data.preciza,
         "method": "GET",
         "success": function(dataB) {
-          console.log(dataB)
             //set up save button
             //define listener here to grab dataB
           $('#popUpTemplate').append('<h1 id="popUpHeader">' + dataB.vorto + '</h1>')
@@ -76,7 +74,6 @@ $('#saviorTheButton').click(function(event) {
 })
 
 var postData = function(savedStuff) {
-  console.log('firing postData. savedStuff:');
   $.ajax({
       url: 'http://localhost:8015/addWord',
       type: 'POST',
