@@ -140,11 +140,19 @@ app.post("/addWord", function(req, res) {
     //save user to the database
     //ni bezonas savi uzanton kaj poste meti la kasxvorton en la datumbazo
     var data = req.body
+    //uncomment out the console log below later
+    // console.log(data)
+     // var userID=
+     // console.log(userID);
         db.none(
-            "INSERT INTO words (word, definition,user_id) VALUES ($1, $2, $3)", [data.name, data.email, hash]
-        ).then(function() {
-            console.log("user created")
-                res.render('index')
+            "INSERT INTO lists (word, definition) VALUES ($1, $2)", [data.word, data.definition]
+        )
+        .catch(function(){
+          console.log("word not added, error.")
+        })
+        .then(function() {
+            console.log("word added")
+                res.render('wiki/articleTemplate')
         })
     })
 //

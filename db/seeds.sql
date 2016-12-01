@@ -11,6 +11,6 @@ CREATE TABLE users(
 CREATE TABLE lists(
 id SERIAL PRIMARY KEY,
 word VARCHAR(255),
-definition VARCHAR(255)
+definition VARCHAR(255),
 user_id INTEGER REFERENCES users(id)
 )
