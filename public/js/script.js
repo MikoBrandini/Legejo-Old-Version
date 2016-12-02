@@ -23,6 +23,8 @@ $('.wikipediaArticleText').click(function(event) {
     "method": "GET",
     "success": function(data) {
       console.log('ajax call was good.')
+      console.log("dis da data")
+      console.log(data)
       console.log("this is the preciza")
       console.log(data.preciza)
       $('#popUpContainer').show()
@@ -30,8 +32,28 @@ $('.wikipediaArticleText').click(function(event) {
       // console.log(data)
       // console.log("this is something "+data.preciza )
       //second level ajax:
+      //I need to pick either the precize definition if the first api finds it. Or the best guess.
+      //the variable below will pick which path to follow:
+      var processedWord;
+      console.log("length of first word in preciza array"+data.preciza.length)
+      var wordProcessor=function(){
+      if(data.preciza.length>1){
+        console.log("check preciza 0")
+        return processedWord=data.preciza[0]
+      }
+      else if(data.malpreciza.length>1){
+        console.log("checking malpreciza 0")
+             return processedWord=data.malpreciza[0]
+      }
+      else{
+        console.log("word will not be processed, oh well.")
+        $('#saviorTheButton').hide()
+        $('#popUpTemplate').append('<h1 id="popUpHeader">NENIO TROVITA!</h1>')
+      }
+  }
+  wordProcessor()
       $.ajax({
-        "url": "http://www.simplavortaro.org/api/v1/vorto/" + data.preciza[0],
+        "url": "http://www.simplavortaro.org/api/v1/vorto/" + processedWord,
         "method": "GET",
         "success": function(dataB) {
             //set up save button
