@@ -37,6 +37,7 @@ $('.wikipediaArticleText').click(function(event) {
       var processedWord;
       console.log("length of first word in preciza array"+data.preciza.length)
       var wordProcessor=function(){
+                $('#saviorTheButton').show()
       if(data.preciza.length>0){
         console.log("check preciza 0")
         return processedWord=data.preciza[0]
