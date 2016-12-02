@@ -11,12 +11,12 @@ p{
 
 #popUpContainer{
   display:  none;
-  background-color: yellow;
+  background-color: #F8F8F8;
 z-index: 1;
 opacity:  1;
 }
 #popUpTemplate{
-  background-color:  green;
+  background-color:  DF;
     height: 400px;
   overflow-y: scroll;
 }
@@ -29,4 +29,6 @@ I don't want the functions that work for one, to work for the other.  */
 .close{
 font-size: 100px;}
 
-
+td, th{
+  font-size:  30px;
+}

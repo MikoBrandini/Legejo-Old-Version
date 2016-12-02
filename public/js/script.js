@@ -11,7 +11,8 @@ $(".textHolders").each(function(index) {
 
 //get definition
 $('.wikipediaArticleText').click(function(event) {
-  vorto = $(this).text()
+  vorto = $(this).text().replace(/[^0-9a-zA-Z ĈĉĜĜĝĤĥĴĵŜŝŬŭ]/g, '');
+  console.log("this is the word: " + vorto)
     // console.log($(this).text())
   $('#popUpContainer').hide()
   $('#popUpTemplate').empty()
@@ -22,13 +23,15 @@ $('.wikipediaArticleText').click(function(event) {
     "method": "GET",
     "success": function(data) {
       console.log('ajax call was good.')
+      console.log("this is the preciza")
+      console.log(data.preciza)
       $('#popUpContainer').show()
       $('#popUpContainer').css('position', 'fixed');
       // console.log(data)
       // console.log("this is something "+data.preciza )
       //second level ajax:
       $.ajax({
-        "url": "http://www.simplavortaro.org/api/v1/vorto/" + data.preciza,
+        "url": "http://www.simplavortaro.org/api/v1/vorto/" + data.preciza[0],
         "method": "GET",
         "success": function(dataB) {
             //set up save button
