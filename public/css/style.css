@@ -1,12 +1,8 @@
-td{
-  text-align:  center
-}
+
 p{
   text-align:  justify;
 }
-table{
-  margin:  0 auto;
-}
+
 
 .heyClowns{
   background-color:  black;
@@ -32,3 +28,5 @@ I don't want the functions that work for one, to work for the other.  */
 
 .close{
 font-size: 100px;}
+
+

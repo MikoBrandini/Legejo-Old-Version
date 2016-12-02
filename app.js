@@ -42,25 +42,30 @@ app.use(session({
   }
 }))
 
+
+
+//this renders the front page
 app.get("/", function(req, res) {
   var logged_in;
   var email;
+  var name;
   var id;
   if (req.session.user) {
     logged_in = true;
     email = req.session.user.email;
+    name=req.session.user.name;
     id = req.session.user.id
   }
   var data = {
     "logged_in": logged_in,
     "email": email,
-    "id": id
+    "id": id,
+    "name":name
       //variables columns from table
   }
   res.render('index', data)
     //this sends over data, even if data is empy due to incorrect log in values
 })
-
 
 
 app.get("/signup", function(req, res) {
@@ -201,3 +206,23 @@ app.get('/words/:user_id',function(req, res){
 
 });
 
+
+//delete a word from the word list
+app.delete('/:id',function(req, res){
+  id = req.params.id
+  console.log(id)
+  db.none("DELETE FROM lists WHERE id=$1", [id])
+  res.redirect('/words/words:show')
+});
+
+//update user's name
+
+app.put('/update/:id',function(req, res){
+  user = req.body
+  id = req.params.id
+
+  db.none("UPDATE users SET name=$1, email=$2 WHERE id=$3",
+    [user.name,user.email,id])
+
+  res.redirect('/')
+});
