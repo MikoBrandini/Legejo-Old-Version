@@ -53,7 +53,7 @@ $('.wikipediaArticleText').click(function(event) {
   }
   wordProcessor()
       $.ajax({
-        "url": "http://www.simplavortaro.org/api/v1/vorto/" + processedWord,
+        "url": "https://www.simplavortaro.org/api/v1/vorto/" + processedWord,
         "method": "GET",
         "success": function(dataB) {
           console.log("dis da dataB")
@@ -102,7 +102,7 @@ $('#saviorTheButton').click(function(event) {
 
 var postData = function(savedStuff) {
   $.ajax({
-      url: 'http://localhost:8015/addWord',
+      url: 'https://localhost:8015/addWord',
       type: 'POST',
       data: savedStuff
     })
