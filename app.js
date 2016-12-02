@@ -222,7 +222,12 @@ app.put('/update/:id',function(req, res){
   id = req.params.id
 
   db.none("UPDATE users SET name=$1, email=$2 WHERE id=$3",
-    [user.name,user.email,id])
-
-  res.redirect('/')
+    [user.name,user.email,id]).then(function(){
+          req.session.destroy()
+          res.redirect('/')
+    })
 });
+app.get('/logout', function(req, res){
+            req.session.destroy()
+          res.redirect('/')
+})
