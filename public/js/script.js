@@ -103,7 +103,7 @@ $('#saviorTheButton').click(function(event) {
 
 var postData = function(savedStuff) {
   $.ajax({
-      url: 'http://localhost:8015/addWord',
+      url: '/addWord',
       type: 'POST',
       data: savedStuff
     })
