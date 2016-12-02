@@ -3,6 +3,7 @@
 <!doctype html>
 <html>
   <head>
+  <title>Ĉefpaĝo</title>
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Rye' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/normalize.css">
@@ -11,9 +12,28 @@
 </head>
 <body>
 
-
-     <div class="border-container">
        {{#logged_in}}
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Legejo</a>
+    </div>
+    <ul class="nav nav-pills">
+  <li class="active"><a href="/" title="homepage">Ĉefpaĝo</a></li>
+  <li><a href="/wiki/template" title="article">Artikolo</a></li>
+  <li><a title="words" href="/words/{{id}}">Vortoj</a></li>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout" title="logout">Elsaluti</a></li>
+        </ul>
+</ul>
+  </div>
+</nav>
+
+
+
+
+
+        <div class="border-container">
        <div class="col-lg-6 center-block">
          <div class="alert alert-success">
            <h4>Bonvenon {{name}}!</h4>
@@ -21,23 +41,23 @@
                   <h3>La Nuna Artikolo:
       <a href="/wiki/template">Legu</a></h3>
 
-                        <h3>Via Listo:
-      <a href="/words/{{id}}">Vortoj</a></h3>
 
-         </div>
-         <a href="/logout">Logout!</a>
-       </div>
 
-       <h1>Agordoj</h1>
+
+ <h1>Agordoj</h1>
+ <p>Averto: La ĝisdatigo de la jeno elsalutos vin!</p>
 <form method="POST" action="/update/{{id}}?_method=PUT">
-<input name="name" id="name" value="{{name}}"><br>
-<input name="email" id="email" value="{{email}}"><br>
-<button type="submit">Save</button>
+Nova Nomo:<input name="name" id="name" value="{{name}}"><br>
+Nova Retpoŝto<input name="email" id="email" value="{{email}}"><br>
+<button type="submit">ĝisdatigu</button>
 </form>
+</div>
 
 
        {{/logged_in}}
        {{^logged_in}}
+    <div class="border-container">
+
        <div class="col-lg-6 center-block">
          <div class="well bs-component">
            <form class="form-horizontal" action="/login" method="post">
@@ -67,6 +87,8 @@
        {{/logged_in}}
      </div>
    </div>
+   </div>
+
 
 
 

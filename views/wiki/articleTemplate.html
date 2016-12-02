@@ -3,35 +3,43 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
+  <title>Artikolo</title>
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/bootstrap.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Legejo</a>
+    </div>
+    <ul class="nav nav-pills">
+  <li class="active"><a href="/" title="homepage">Ĉefpaĝo</a></li>
+  <li><a href="/wiki/template" title="article">Artikolo</a></li>
+  <li><a title="words" href="/words/{{id}}">Vortoj</a></li>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout" title="logout">Elsaluti</a></li>
+        </ul>
+</ul>
+  </div>
+</nav>
+
+
+
+
+
 
 <div id="popUpContainer" class="col-12 center-block container">
     <button class="close">&times;</button>
     <div id="popUpTemplate">
     </div>
-
-
-
-
-<!--     <form class="form-horizontal" action="/addWord" name="addWord" method="POST">
-        <fieldset> -->
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
                     <button id="saviorTheButton" type="submit" class="btn btn-primary">Savu la vorton!</button>
                 </div>
             </div>
-<!--         </fieldset>
-    </form> -->
 </div>
-
-
-
-
 
 
 <div class="col-10 center-block  container">

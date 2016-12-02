@@ -31,7 +31,6 @@ var port = process.env.PORT || 8015;
 app.listen(port)
 console.log("Callooh! Callay! Server is running on " + port);
 
-//log in and user creation stuff begins here
 
 app.use(session({
   secret: 'theTruthIsOutThere51',
@@ -61,10 +60,8 @@ app.get("/", function(req, res) {
     "email": email,
     "id": id,
     "name":name
-      //variables columns from table
   }
   res.render('index', data)
-    //this sends over data, even if data is empy due to incorrect log in values
 })
 
 
@@ -75,11 +72,9 @@ app.get("/signup", function(req, res) {
 
 //to create a new user
 app.post("/signup", function(req, res) {
-  //save user to the database
-  //ni bezonas savi uzanton kaj poste meti la kasxvorton en la datumbazo
+
   var data = req.body
 
-  //bcrypt needs to use callbacks instead of promises, unfortunately.
   bcrypt.hash(data.password, 10, function(err, hash) {
 
     db.none(
@@ -93,30 +88,21 @@ app.post("/signup", function(req, res) {
 
 
 
-//from the get thing up there, it redirects me up here.
 app.post('/login', function(req, res) {
-  //there is no actual /login that's accessible to the client.
-  //we need to grab stuff off the body
-  //grabing from forms
+
   var data = req.body;
-  //check if user exists is step one.
   db.one(
     "SELECT * FROM users WHERE email=$1", [data.email]
-    //the above in brackets sanatizes
   ).catch(function() {
     res.send('Email/Password not found')
     console.log('Email/Password not found')
-      //we are ambigious above to make it easier. but it should just saw user.
   }).then(function(user) {
-    //the order of the values in the comparison below matter.the first one must be the plaintext pw
     bcrypt.compare(data.password, user.password_digest, function(err, cmp) {
       if (cmp) {
         req.session.user = user;
-        //sort of like a variable, it contains the data user, the row of the user database
-        //like a particular row in a user database
+
         console.log("cmp succesful, email matches pw")
         res.redirect('/');
-        //i need to be sent to the index page and just show the content meant for loggedin users
       } else {
         res.send('Email/Password not found')
       }
@@ -128,15 +114,12 @@ app.post('/login', function(req, res) {
   })
 })
 
-//end of sign up and log in stuff
 
 
 
 //how to save a new word
-//
 app.post("/addWord", function(req, res) {
-    //save user to the database
-    //ni bezonas savi uzanton kaj poste meti la kasxvorton en la datumbazo
+
     var data = req.body
     theId=req.session.user.id
     db.none(
@@ -150,14 +133,7 @@ app.post("/addWord", function(req, res) {
         res.render('wiki/articleTemplate')
       })
   })
-  //
-  //end of saving a new word
 
-
-//render index page
-// app.get('/', function(req, res) {
-//   res.render('index');
-// });
 
 //this renders the article available to the user
 app.get('/wiki/template', function(req, res) {
@@ -169,8 +145,10 @@ app.get('/wiki/template', function(req, res) {
       return console.log('Invalid Status Code Returned:', response.statusCode);
     }
     var parsingThing = JSON.parse(body);
+    var id = req.session.user.id
     res.render('wiki/articleTemplate', {
-      "wikiData": parsingThing
+      "wikiData": parsingThing,
+      "id":id
     })
   })
 })
@@ -227,6 +205,9 @@ app.put('/update/:id',function(req, res){
           res.redirect('/')
     })
 });
+
+
+//to log
 app.get('/logout', function(req, res){
             req.session.destroy()
           res.redirect('/')
