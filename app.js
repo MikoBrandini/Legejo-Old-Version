@@ -25,7 +25,8 @@ app.use(bdPars.urlencoded({
 })); //body parser
 app.use(bdPars.json()); //body parser
 
-var db = pgp('postgres://student_12@localhost:5432/secondProject_db');
+var db = pgp(process.env.DATABASE_URL || 'postgres://student_12@localhost:5432/secondProject_db');
+// var db = pgp('postgres://student_12@localhost:5432/secondProject_db');
 
 var port = process.env.PORT || 8015;
 app.listen(port)

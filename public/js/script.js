@@ -23,10 +23,10 @@ $('.wikipediaArticleText').click(function(event) {
     "method": "GET",
     "success": function(data) {
       console.log('ajax call was good.')
-      console.log("dis da data")
-      console.log(data)
-      console.log("this is the preciza")
-      console.log(data.preciza)
+      // console.log("dis da data")
+      // console.log(data)
+      // console.log("this is the preciza")
+      // console.log(data.preciza)
       $('#popUpContainer').show()
       $('#popUpContainer').css('position', 'fixed');
       // console.log(data)
@@ -37,16 +37,16 @@ $('.wikipediaArticleText').click(function(event) {
       var processedWord;
       console.log("length of first word in preciza array"+data.preciza.length)
       var wordProcessor=function(){
-      if(data.preciza.length>1){
+      if(data.preciza.length>0){
         console.log("check preciza 0")
         return processedWord=data.preciza[0]
       }
-      else if(data.malpreciza.length>1){
+      else if(data.malpreciza.length>0){
         console.log("checking malpreciza 0")
              return processedWord=data.malpreciza[0]
       }
       else{
-        console.log("word will not be processed, oh well.")
+   //this happens if neither a precise or imprecise definition is found. save button removed.
         $('#saviorTheButton').hide()
         $('#popUpTemplate').append('<h1 id="popUpHeader">NENIO TROVITA!</h1>')
       }
@@ -56,6 +56,8 @@ $('.wikipediaArticleText').click(function(event) {
         "url": "http://www.simplavortaro.org/api/v1/vorto/" + processedWord,
         "method": "GET",
         "success": function(dataB) {
+          console.log("dis da dataB")
+          console.log(dataB)
             //set up save button
             //define listener here to grab dataB
           $('#popUpTemplate').append('<h1 id="popUpHeader">' + dataB.vorto + '</h1>')
