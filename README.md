@@ -1,3 +1,5 @@
+I also read things. 
+
 Legejo [Le-Gay-O] is the name of my app. In Esperanto it means "reading place". 
 The goal of the app is to allow the user to read an article in Esperanto and click on words they don't understand. 
 That way they get the definition. If they deem the word worthy of reviewing, 
