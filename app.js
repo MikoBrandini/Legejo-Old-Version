@@ -65,9 +65,9 @@ app.get("/", function(req, res) {
   res.render('index', data)
 })
 
-
-app.get("/", function(req, res) {
-  res.render('index')
+//this renders the login page
+app.get("/login", function(req, res) {
+  res.render('login/index')
 })
 
 
@@ -146,10 +146,10 @@ app.get('/wiki/template', function(req, res) {
       return console.log('Invalid Status Code Returned:', response.statusCode);
     }
     var parsingThing = JSON.parse(body);
-    var id = req.session.user.id
+    // var id = req.session.user.id
     res.render('wiki/articleTemplate', {
       "wikiData": parsingThing,
-      "id":id
+      // "id":id
     })
   })
 })
@@ -171,9 +171,8 @@ app.get('/wiki/template', function(req, res) {
 
 
 //this renders the list of words belonging to the currently logged in user
-app.get('/words/:user_id',function(req, res){
+app.get('/words/:user_id',function(req, res, err){
     user_id=req.session.user.id
-
   db.many('SELECT * FROM lists where user_id= $1', [user_id])
     .catch(function(){
     console.log("error in word list rendering, sorry. ")
@@ -184,7 +183,6 @@ app.get('/words/:user_id',function(req, res){
   });
 
 });
-
 
 //delete a word from the word list
 app.delete('/:id',function(req, res){
