@@ -66,8 +66,8 @@ app.get("/", function(req, res) {
 })
 
 
-app.get("/signup", function(req, res) {
-  res.render('signup/index')
+app.get("/", function(req, res) {
+  res.render('index')
 })
 
 
