@@ -11,4 +11,4 @@ I was also considering allowing users to post comments to each article. The comm
 User Story: "As an  intermediate level Esperanto speaker, I want to be exposed to Esperanto text in realistic contexts and expand my vocabulary."
 Wireframes: https://trello.com/b/9wq9G3BI/duaprojekto
 
-In order to correctly interact with the provided article, you must make the connection insecure in the browser. Remove the S from HTTPS.
+In order to correctly interact with the provided article (hard-coded article about France), you must make the connection insecure in the browser. Remove the S from HTTPS.
