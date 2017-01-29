@@ -65,11 +65,16 @@ app.get("/", function(req, res) {
   res.render('index', data)
 })
 
+
 //this renders the login page
 app.get("/login", function(req, res) {
   res.render('login/index')
 })
 
+//this renders the signup page
+app.get("/signup", function(req, res) {
+  res.render('signup/index')
+})
 
 //to create a new user
 app.post("/signup", function(req, res) {
