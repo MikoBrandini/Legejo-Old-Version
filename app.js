@@ -143,7 +143,19 @@ app.post("/addWord", function(req, res) {
 
 //this renders the article available to the user
 app.get('/wiki/template', function(req, res) {
-  request('http://eo.wikipedia.org/api/rest_v1/page/mobile-sections/francio', function(error, response, body) {
+  var logged_in;
+
+  if (req.session.user) {
+    logged_in = true;
+
+  }
+  var data = {
+    "logged_in": logged_in,
+  }
+
+
+
+  request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/francio', function(error, response, body) {
     if (error) {
       return console.log('Error:', error);
     }
@@ -160,7 +172,17 @@ app.get('/wiki/template', function(req, res) {
 })
 //this renders the wikipedia article
 app.get('/wiki/template', function(req, res) {
-  request('http://eo.wikipedia.org/api/rest_v1/page/mobile-sections/francio', function(error, response, body) {
+  var logged_in;
+
+  if (req.session.user) {
+    logged_in = true;
+
+  }
+  var data = {
+    "logged_in": logged_in,
+  }
+
+  request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/francio', function(error, response, body) {
     if (error) {
       return console.log('Error:', error);
     }
