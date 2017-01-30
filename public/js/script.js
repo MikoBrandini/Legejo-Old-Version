@@ -19,7 +19,7 @@ $('.wikipediaArticleText').click(function(event) {
     // console.log(this)
     // $(this).append('<div id=popUpTemplate></div>')
   $.ajax({
-    "url": "http://www.simplavortaro.org/api/v1/trovi/" + vorto,
+    "url": "https://www.simplavortaro.org/api/v1/trovi/" + vorto,
     "method": "GET",
     "success": function(data) {
       console.log('ajax call was good.')
@@ -54,7 +54,7 @@ $('.wikipediaArticleText').click(function(event) {
   }
   wordProcessor()
       $.ajax({
-        "url": "http://www.simplavortaro.org/api/v1/vorto/" + processedWord,
+        "url": "https://www.simplavortaro.org/api/v1/vorto/" + processedWord,
         "method": "GET",
         "success": function(dataB) {
           console.log("dis da dataB")
@@ -73,7 +73,7 @@ $('.wikipediaArticleText').click(function(event) {
       //this is the save word button
 
 
-      //this close code is taken from: http://stackoverflow.com/questions/22052317/hide-parent-div-on-click-using-jquery
+      //this close code is taken from: https://stackoverflow.com/questions/22052317/hide-parent-div-on-click-using-jquery
       $('.close').on("click", function() {
         $(this).parents('div').hide();
       });
