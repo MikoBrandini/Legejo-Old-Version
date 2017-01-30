@@ -1,68 +1,77 @@
-
 <!doctype html>
 <html>
-  <head>
+
+<head>
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Rye' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="/css/normalize.css">
-  <link rel="stylesheet" href="/css/bootstrap.css">
-  <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Legejo</a>
-    </div>
-    <ul class="nav nav-pills">
-  <li><a href="/" title="homepage">Ĉefpaĝo</a></li>
-  <li><a href="/wiki/template" title="article">Artikolo</a></li>
-  <li class="active">{{#vortoj}}<a title="words" href="/words/{{user_id}}"{{/vortoj}} >Vortoj</a></li>
-        <ul class="nav navbar-nav navbar-right">
-        <li><a href="/logout" title="logout">Elsaluti</a></li>
-        </ul>
-</ul>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Legejo</a>
+            </div>
+            <ul class="nav nav-pills">
+                <li><a href="/" title="homepage">Ĉefpaĝo</a>
+                </li>
+                <li><a href="/wiki/template" title="article">Artikolo</a>
+                </li>
+                {{#logged_in}}
+                <li class="active"><a title="words" href="/words/{{id}}">Vortoj</a>
+                </li>
+                {{/logged_in}}
+                <ul class="nav navbar-nav navbar-right">
+                    {{#logged_in}}
+                    <li><a href="/logout" title="logout">Elsaluti</a>
+                    </li>
+                    {{/logged_in}}
+                    {{^logged_in}}
+                    <li><a href="/login" title="login">Ensaluti</a>
+                    </li>
+                    {{/logged_in}}
+
+                </ul>
+            </ul>
+        </div>
+    </nav>
+
+    <br>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="row">Vorto</th>
+                <th>Difino</th>
+                <th>Forigi</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#vortoj}}
+            <tr>
+                <td scope="row">{{word}}</td>
+                <td>{{definition}}</td>
+                <td>
 
 
-  </div>
-</nav>
+                    <form method="POST" action="/{{id}}?_method=DELETE">
+                        <button>FORIGU</button>
+                    </form>
 
 
+                </td>
+            </tr>
 
+            {{/vortoj}}
+        </tbody>
+    </table>
 
-<br>
-<table class="table table-bordered">
-<thead>
-<tr >
-  <th  scope="row">Vorto</th>
-  <th>Difino</th>
-  <th>Forigi</th>
-</tr>
-</thead>
-<tbody>
-{{#vortoj}}
-<tr>
-  <td  scope="row">{{word}}</td>
-  <td>{{definition}}</td>
-  <td>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/script.js"></script>
 
+</body>
 
-<form method="POST" action="/{{id}}?_method=DELETE">
-  <button>FORIGU</button>
-</form>
-
-
-  </td>
-</tr>
-
-{{/vortoj}}
-</tbody>
-</table>
-
-  <script src="/js/jquery.js"></script>
-  <script src="/js/script.js"></script>
-
-  </body>
 </html>
-

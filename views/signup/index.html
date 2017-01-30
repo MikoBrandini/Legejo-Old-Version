@@ -10,10 +10,37 @@
   <link rel="stylesheet" href="/css/bootstrap.css">
   <link rel="stylesheet" href="/css/style.css"></head>
 <body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Legejo</a>
+            </div>
+            <ul class="nav nav-pills">
+                <li><a href="/" title="homepage">Ĉefpaĝo</a>
+                </li>
+                <li><a href="/wiki/template" title="article">Artikolo</a>
+                </li>
+                {{#logged_in}}
+                <li><a title="words" href="/words/{{id}}">Vortoj</a>
+                </li>
+                {{/logged_in}}
+                <ul class="nav navbar-nav navbar-right">
+                    {{#logged_in}}
+                    <li class="active"><a href="/logout" title="logout">Elsaluti</a>
+                    </li>
+                    {{/logged_in}}
+                    {{^logged_in}}
+                    <li class="active"><a href="/login" title="login">Ensaluti</a>
+                    </li>
+                    {{/logged_in}}
+
+                </ul>
+            </ul>
+        </div>
+    </nav>
       <div class="main-container">
       <div class="border-container">
         <h1>Aliĝejo</h1>
-        <h5>Sign Up</h5>
         <div class="col-lg-6 center-block">
           <div class="well bs-component">
             <form class="form-horizontal" action="/register" method="post">
