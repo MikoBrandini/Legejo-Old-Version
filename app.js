@@ -77,7 +77,7 @@ app.get("/signup", function(req, res) {
 })
 
 //to create a new user
-app.post("/register", function(req, res) {
+app.post("/signup", function(req, res) {
 
   var data = req.body
 
