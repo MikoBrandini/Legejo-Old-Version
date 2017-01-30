@@ -16,10 +16,10 @@ Technologies Used
     * **[Wikimedia REST API](https://eo.wikipedia.org/api/rest_v1/#/)**
     * **[SimpleVortaro](http://www.simplavortaro.org/informo/api)**
 * Node.js:
-    * **[express](https://github.com/expressjs/express)**web application framework
-    * **[mustache.js](https://github.com/janl/mustache.js)**templating system
-    * **[session](https://github.com/expressjs/session)**session middleware
-    * **[https://github.com/kelektiv/node.bcrypt.js](bcrpyt.js)**for hashing passwords
+    * **[express](https://github.com/expressjs/express)** web application framework
+    * **[mustache.js](https://github.com/janl/mustache.js)** templating system
+    * **[session](https://github.com/expressjs/session)** session middleware
+    * **[https://github.com/kelektiv/node.bcrypt.js](bcrpyt.js)** for hashing passwords
 * CSS
     * **[Bootstrap](http://getbootstrap.com)**
 
