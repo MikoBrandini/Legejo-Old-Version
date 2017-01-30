@@ -1,6 +1,6 @@
 **[Legejo](https://legejo.herokuapp.com/)**
 ======
-In Esperanto Legejo means "reading place". 
+In Esperanto Legejo (Le-Gey-O) means "reading place". 
 https://legejo.herokuapp.com/
 This app allows users to read curated articles from wikipedia in Esperanto. If they run
 into a word that they don't know, they can click on it and read the definition. Afterwards,
