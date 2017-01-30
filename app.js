@@ -144,18 +144,25 @@ app.post("/addWord", function(req, res) {
 //this renders the article available to the user
 app.get('/wiki/template', function(req, res) {
   var logged_in;
-
+  var email;
+  var name;
+  var id;
   if (req.session.user) {
     logged_in = true;
-
+    email = req.session.user.email;
+    name=req.session.user.name;
+    id = req.session.user.id
   }
   var data = {
     "logged_in": logged_in,
+    "email": email,
+    "id": id,
+    "name":name
   }
 
 
 
-  request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/francio', function(error, response, body) {
+  request('f', function(error, response, body) {
     if (error) {
       return console.log('Error:', error);
     }
@@ -170,16 +177,9 @@ app.get('/wiki/template', function(req, res) {
     })
   })
 })
+
 //this renders the wikipedia article
 app.get('/wiki/template', function(req, res) {
-  var logged_in;
-  if (req.session.user) {
-    logged_in = true;
-  }
-  var data = {
-    "logged_in": logged_in,
-  }
-
   request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/francio', function(error, response, body) {
     if (error) {
       return console.log('Error:', error);
@@ -190,7 +190,7 @@ app.get('/wiki/template', function(req, res) {
     var parsingThing = JSON.parse(body);
     res.render('wiki/articleTemplate', {
       "wikiData": parsingThing
-    }, dataf)
+    })
   })
 })
 
@@ -203,7 +203,7 @@ app.get('/words/:user_id',function(req, res, err){
     console.log("error in word list rendering, sorry. ")
   })
   .then(function(data){
-    res.render('words/words:show', {"vortoj":data}, data);
+    res.render('words/words:show', {"vortoj":data});
 
   });
 
