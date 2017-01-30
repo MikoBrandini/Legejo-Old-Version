@@ -12,14 +12,14 @@ User Story
 
 Technologies Used
 ------ 
-*API's: 
-        * **[Wikimedia REST API](https://eo.wikipedia.org/api/rest_v1/#/)**
-        * **[SimpleVortaro](http://www.simplavortaro.org/informo/api)**
+*API's 
+    * **[Wikimedia REST API](https://eo.wikipedia.org/api/rest_v1/#/)**
+    * **[SimpleVortaro](http://www.simplavortaro.org/informo/api)**
 *Node.js:
-        * **[express](https://github.com/expressjs/express)**web application framework
-        * **[mustache.js](https://github.com/janl/mustache.js)**templating system
-        * **[session](https://github.com/expressjs/session)**session middleware
-        * **[https://github.com/kelektiv/node.bcrypt.js](bcrpyt.js)**for hashing passwords
+    * **[express](https://github.com/expressjs/express)**web application framework
+    * **[mustache.js](https://github.com/janl/mustache.js)**templating system
+    * **[session](https://github.com/expressjs/session)**session middleware
+    * **[https://github.com/kelektiv/node.bcrypt.js](bcrpyt.js)**for hashing passwords
 * CSS
     * **[Bootstrap](http://getbootstrap.com)**
 
@@ -29,5 +29,5 @@ Technologies Used
 Bugs
 ------ 
 * Mixed content error. 
-        * The SimpleVortaro API is not available through a secure HTTPS connection.
-        In order to utilize the onClick word definition feature in the *Artikolo* section, you must manually delete the S in the address bar. http://legejo.herokuapp.com/wiki/template
+    * The SimpleVortaro API is not available through a secure HTTPS connection.
+     In order to utilize the onClick word definition feature in the *Artikolo* section, you must manually delete the S in the address bar. http://legejo.herokuapp.com/wiki/template
