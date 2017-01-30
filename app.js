@@ -87,7 +87,7 @@ app.post("/signup", function(req, res) {
       "INSERT INTO users (name, email, password_digest) VALUES ($1, $2, $3)", [data.name, data.email, hash]
     ).then(function() {
       console.log("user created")
-      res.render('index')
+      res.render('login/index')
     })
   })
 })
