@@ -9,6 +9,7 @@ var rp = require('request-promise');
 var fs = require('fs');
 var cheerio = require('cheerio');
 var session = require('express-session');
+var http = require('http').
 
 
 const bcrypt = require('bcryptjs')

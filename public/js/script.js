@@ -11,7 +11,7 @@ $(".textHolders").each(function(index) {
 
 //get definition
 /*
-testing something now
+I am going to need to make both API urls ito
 */
 $('.wikipediaArticleText').click(function(event) {
 
@@ -23,7 +23,7 @@ $('.wikipediaArticleText').click(function(event) {
     // console.log(this)
     // $(this).append('<div id=popUpTemplate></div>')
   $.ajax({
-    "url": "simplavortaro.org/api/v1/trovi/" + vorto,
+    "url": "//simplavortaro.org/api/v1/trovi/" + vorto,
     "method": "GET",
     "success": function(data) {
       console.log('ajax call was good.')
@@ -56,7 +56,7 @@ $('.wikipediaArticleText').click(function(event) {
   }
   wordProcessor()
       $.ajax({
-        "url": "simplavortaro.org/api/v1/vorto/" + processedWord,
+        "url": "//simplavortaro.org/api/v1/vorto/" + processedWord,
         "method": "GET",
         "success": function(dataB) {
           console.log("dis da dataB")
