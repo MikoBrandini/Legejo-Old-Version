@@ -162,7 +162,7 @@ app.get('/wiki/template', function(req, res) {
 
 
 
-  request('f', function(error, response, body) {
+  request('https://eo.wikipedia.org/api/rest_v1/page/mobile-sections/francio', function(error, response, body) {
     if (error) {
       return console.log('Error:', error);
     }
@@ -192,6 +192,7 @@ app.get('/wiki/template', function(req, res) {
       "wikiData": parsingThing
     })
   })
+
 })
 
 

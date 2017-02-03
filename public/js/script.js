@@ -10,7 +10,11 @@ $(".textHolders").each(function(index) {
 
 
 //get definition
+/*
+testing something now
+*/
 $('.wikipediaArticleText').click(function(event) {
+
   vorto = $(this).text().replace(/[^0-9a-zA-Z ĈĉĜĜĝĤĥĴĵŜŝŬŭ]/g, '');
   console.log("this is the word: " + vorto)
     // console.log($(this).text())
@@ -19,13 +23,11 @@ $('.wikipediaArticleText').click(function(event) {
     // console.log(this)
     // $(this).append('<div id=popUpTemplate></div>')
   $.ajax({
-    "url": "http://www.simplavortaro.org/api/v1/trovi/" + vorto,
+    "url": "simplavortaro.org/api/v1/trovi/" + vorto,
     "method": "GET",
     "success": function(data) {
       console.log('ajax call was good.')
-      // console.log("dis da data")
-      // console.log(data)
-      // console.log("this is the preciza")
+      // console.log("this is the preciza datumo")
       // console.log(data.preciza)
       $('#popUpContainer').show()
       $('#popUpContainer').css('position', 'fixed');
@@ -54,7 +56,7 @@ $('.wikipediaArticleText').click(function(event) {
   }
   wordProcessor()
       $.ajax({
-        "url": "http://www.simplavortaro.org/api/v1/vorto/" + processedWord,
+        "url": "simplavortaro.org/api/v1/vorto/" + processedWord,
         "method": "GET",
         "success": function(dataB) {
           console.log("dis da dataB")
@@ -81,6 +83,7 @@ $('.wikipediaArticleText').click(function(event) {
 
     }
   })
+
 });
 
 
@@ -100,6 +103,9 @@ $('#saviorTheButton').click(function(event) {
   $('#popUpContainer').hide()
   $('#popUpTemplate').empty()
 })
+
+
+
 
 var postData = function(savedStuff) {
   $.ajax({

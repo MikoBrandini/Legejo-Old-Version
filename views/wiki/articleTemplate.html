@@ -40,8 +40,8 @@
         </div>
     </nav>
 
-
     <div id="popUpContainer" class="col-12 center-block container-fluid">
+
         <button class="close">&times;</button>
         <div id="popUpTemplate" class="alert alert-success" role="alert">
         </div>
@@ -53,12 +53,17 @@
     </div>
 
     <div class="col-10 center-block  container">
-        {{#wikiData}} {{#lead}}
+        {{#wikiData}}
+
+
+        {{#lead}}
         <span class="col-md-10 textHolders">{{displaytitle}}</span>
         <span class="col-md-10 textHolders ">{{description}}</span>
         <span class="col-md-10 textHolders ">{{#sections}}</span>
         <span class="col-md-10 textHolders ">{{{text}}}</span> {{/sections}} {{/lead}} {{#remaining}} {{#sections}}
-        <span class="col-md-10  textHolders"> {{{text}}}</span> {{/sections}} {{/remaining}} {{/wikiData}}
+        <span class="col-md-10  textHolders"> {{{text}}}</span> {{/sections}} {{/remaining}}
+
+        {{/wikiData}}
         <script src="/js/jquery.js"></script>
         <script src="/js/script.js"></script>
     </div>
