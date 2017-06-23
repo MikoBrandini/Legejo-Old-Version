@@ -55,6 +55,7 @@ $('.wikipediaArticleText').click(function(event) {
       }
   }
   theWordOkay=JSON.stringify(proccesedWord)
+   cosole.log("theWordOkay: " + theWordOkay)
   wordProcessor()
       $.ajax({
         "url": "//simplavortaro.org/api/v1/vorto/" + theWordOkay,
