@@ -24,7 +24,6 @@ $('.wikipediaArticleText').click(function(event) {
     // $(this).append('<div id=popUpTemplate></div>')
   $.ajax({
     "url": "//simplavortaro.org/api/v1/trovi/" + vorto,
-    dataType: 'jsonp',
     "method": "GET",
     "success": function(data) {
       console.log('ajax call was good.')
