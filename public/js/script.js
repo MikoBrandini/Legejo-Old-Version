@@ -46,9 +46,7 @@ $('.wikipediaArticleText').click(function(event) {
       }
       else if(data.malpreciza.length>0){
         console.log("checking malpreciza 0")
-             return (processedWord=data.malpreciza[0]
-               theWordOkay=JSON.stringify(proccesedWord)
-   cosole.log("theWordOkay: " + theWordOkay)
+             return (processedWord=JSON.stringify(data.malpreciza[0])
    )
       }
       else{
