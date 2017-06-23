@@ -46,8 +46,10 @@ $('.wikipediaArticleText').click(function(event) {
       }
       else if(data.malpreciza.length>0){
         console.log("checking malpreciza 0")
-             return processedWord=data.malpreciza[0]  theWordOkay=JSON.stringify(proccesedWord)
-             cosole.log("theWordOkay: " + theWordOkay)
+             return (processedWord=data.malpreciza[0]
+               theWordOkay=JSON.stringify(proccesedWord)
+   cosole.log("theWordOkay: " + theWordOkay)
+   )
       }
       else{
    //this happens if neither a precise or imprecise definition is found. save button removed.
