@@ -42,11 +42,11 @@ $('.wikipediaArticleText').click(function(event) {
                 $('#saviorTheButton').show()
       if(data.preciza.length>0){
         console.log("check preciza 0")
-        return processedWord=data.preciza[0]
+        return processedWord=JSON.stringify(data.preciza[0])
       }
       else if(data.malpreciza.length>0){
         console.log("checking malpreciza 0")
-             return (processedWord=data.malpreciza[0])
+             return (JSON.stringify(processedWord=data.malpreciza[0]))
 }
 
 
