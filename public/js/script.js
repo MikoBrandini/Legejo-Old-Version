@@ -54,9 +54,10 @@ $('.wikipediaArticleText').click(function(event) {
         $('#popUpTemplate').append('<h1 id="popUpHeader">NENIO TROVITA!</h1>')
       }
   }
+  theWordOkay=JSON.stringify(proccesedWord)
   wordProcessor()
       $.ajax({
-        "url": "//simplavortaro.org/api/v1/vorto/" + processedWord,
+        "url": "//simplavortaro.org/api/v1/vorto/" + theWordOkay,
         "method": "GET",
         "success": function(dataB) {
           console.log("dis da dataB")
