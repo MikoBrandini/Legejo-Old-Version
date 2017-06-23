@@ -46,7 +46,7 @@ $('.wikipediaArticleText').click(function(event) {
       }
       else if(data.malpreciza.length>0){
         console.log("checking malpreciza 0")
-             return (processedWord=JSON.stringify(data.malpreciza[0])
+             return (processedWord=JSON.stringify(data.malpreciza[0]
    )
       }
       else{
@@ -58,7 +58,7 @@ $('.wikipediaArticleText').click(function(event) {
 
   wordProcessor()
       $.ajax({
-        "url": "//simplavortaro.org/api/v1/vorto/" + theWordOkay,
+        "url": "//simplavortaro.org/api/v1/vorto/" + processedWord,
         "method": "GET",
         "success": function(dataB) {
           console.log("dis da dataB")
