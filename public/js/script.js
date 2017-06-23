@@ -46,7 +46,8 @@ $('.wikipediaArticleText').click(function(event) {
       }
       else if(data.malpreciza.length>0){
         console.log("checking malpreciza 0")
-             return processedWord=data.malpreciza[0]
+             return processedWord=data.malpreciza[0]  theWordOkay=JSON.stringify(proccesedWord)
+             cosole.log("theWordOkay: " + theWordOkay)
       }
       else{
    //this happens if neither a precise or imprecise definition is found. save button removed.
@@ -54,8 +55,7 @@ $('.wikipediaArticleText').click(function(event) {
         $('#popUpTemplate').append('<h1 id="popUpHeader">NENIO TROVITA!</h1>')
       }
   }
-  theWordOkay=JSON.stringify(proccesedWord)
-   cosole.log("theWordOkay: " + theWordOkay)
+
   wordProcessor()
       $.ajax({
         "url": "//simplavortaro.org/api/v1/vorto/" + theWordOkay,
