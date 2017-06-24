@@ -17,20 +17,20 @@
                 <a class="navbar-brand" href="/">Legejo</a>
             </div>
             <ul class="nav nav-pills">
-                <li><a href="/" title="homepage">Ĉefpaĝo</a>
+                <li><a href="/" title="homepage">Main Page</a>
                 </li>
-                <li class="active"><a href="/wiki/template" title="article">Artikolo</a>
+                <li class="active"><a href="/wiki/template" title="article">Article</a>
                 </li>
                 {{#logged_in}}
-                <li><a title="words" href="/words/{{id}}">Vortoj</a>
+                <li><a title="words" href="/words/{{id}}">Words</a>
                 </li>
                 {{/logged_in}}
                 <ul class="nav navbar-nav navbar-right">
                     {{#logged_in}}
-                    <li><a href="/logout" title="logout">Elsaluti</a>
+                    <li><a href="/logout" title="logout">Log Out</a>
                     </li>
                     {{/logged_in}}
-                    <li><a href="/login" title="login">Ensaluti</a>
+                    <li><a href="/login" title="login">Log in</a>
                     </li>
                     {{^logged_in}}
                     {{/logged_in}}
@@ -47,7 +47,7 @@
         </div>
         <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-                <button id="saviorTheButton" type="submit" class="btn btn-primary">Savu la vorton!</button>
+                <button id="saviorTheButton" type="submit" class="btn btn-primary">Save the word!</button>
             </div>
         </div>
     </div>

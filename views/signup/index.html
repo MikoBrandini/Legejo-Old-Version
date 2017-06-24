@@ -16,21 +16,21 @@
                 <a class="navbar-brand" href="/">Legejo</a>
             </div>
             <ul class="nav nav-pills">
-                <li><a href="/" title="homepage">Ĉefpaĝo</a>
+                <li><a href="/" title="homepage">Main Page</a>
                 </li>
-                <li><a href="/wiki/template" title="article">Artikolo</a>
+                <li><a href="/wiki/template" title="article">Article</a>
                 </li>
                 {{#logged_in}}
-                <li><a title="words" href="/words/{{id}}">Vortoj</a>
+                <li><a title="words" href="/words/{{id}}">Words</a>
                 </li>
                 {{/logged_in}}
                 <ul class="nav navbar-nav navbar-right">
                     {{#logged_in}}
-                    <li class="active"><a href="/logout" title="logout">Elsaluti</a>
+                    <li class="active"><a href="/logout" title="logout">Log Out</a>
                     </li>
                     {{/logged_in}}
                     {{^logged_in}}
-                    <li class="active"><a href="/login" title="login">Ensaluti</a>
+                    <li class="active"><a href="/login" title="login">Log In</a>
                     </li>
                     {{/logged_in}}
 
@@ -45,29 +45,29 @@
           <div class="well bs-component">
             <form class="form-horizontal" action="/signup" method="post">
               <fieldset>
-                <legend>Aliĝu</legend>
+                <legend>Sign up</legend>
                 <div class="form-group">
-                  <label for="inputName" class="col-lg-2 control-label">Nomo</label>
+                  <label for="inputName" class="col-lg-2 control-label">Name</label>
                   <div class="col-lg-10">
                     <input name="name" type="text" class="form-control" id="name" placeholder="Name">
                   </div>
                 </div>
 
                 <div class="form-group">
-                  <label for="inputEmail" class="col-lg-2 control-label">Retpoŝto</label>
+                  <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                   <div class="col-lg-10">
                     <input name="email" type="text" class="form-control" id="email" placeholder="Email">
                   </div>
                 </div>
                 <div class="form-group">
-                  <label for="inputPassword" class="col-lg-2 control-label">Pasvorto</label>
+                  <label for="inputPassword" class="col-lg-2 control-label">Password</label>
                   <div class="col-lg-10">
                     <input name="password" type="password" class="form-control" id="password" placeholder="Password">
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="col-lg-10 col-lg-offset-2">
-                    <button type="submit" class="btn btn-primary">Aliĝu!</button>
+                    <button type="submit" class="btn btn-primary">Sign up!</button>
                   </div>
                 </div>
               </fieldset>

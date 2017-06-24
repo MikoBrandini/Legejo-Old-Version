@@ -17,21 +17,21 @@
                 <a class="navbar-brand" href="/">Legejo</a>
             </div>
             <ul class="nav nav-pills">
-                <li><a href="/" title="homepage">Ĉefpaĝo</a>
+                <li><a href="/" title="homepage">Main Page</a>
                 </li>
-                <li><a href="/wiki/template" title="article">Artikolo</a>
+                <li><a href="/wiki/template" title="article">Article</a>
                 </li>
                 {{#logged_in}}
-                <li class="active"><a title="words" href="/words/{{id}}">Vortoj</a>
+                <li class="active"><a title="words" href="/words/{{id}}">Words</a>
                 </li>
                 {{/logged_in}}
                 <ul class="nav navbar-nav navbar-right">
                     {{#logged_in}}
-                    <li><a href="/logout" title="logout">Elsaluti</a>
+                    <li><a href="/logout" title="logout">Log Out</a>
                     </li>
                     {{/logged_in}}
                     {{^logged_in}}
-                    <li><a href="/login" title="login">Ensaluti</a>
+                    <li><a href="/login" title="login">Log In</a>
                     </li>
                     {{/logged_in}}
 
@@ -45,8 +45,8 @@
         <thead>
             <tr>
                 <th scope="row">Vorto</th>
-                <th>Difino</th>
-                <th>Forigi</th>
+                <th>Definition</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -58,7 +58,7 @@
 
 
                     <form method="POST" action="/{{id}}?_method=DELETE">
-                        <button>FORIGU</button>
+                        <button>DELETE</button>
                     </form>
 
 
