@@ -26,9 +26,3 @@ Technologies Used
 
 * Javascript
     * **[jQuery](https://jquery.com)**
-
-Bugs
------- 
-* Mixed content error. 
-    * The SimpleVortaro API is not available through a secure HTTPS connection.
-     In order to utilize the onClick word definition feature in the *Artikolo* section, you must manually delete the S in the address bar. http://legejo.herokuapp.com/wiki/template
