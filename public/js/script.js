@@ -23,13 +23,8 @@ $('.wikipediaArticleText').click(function(event) {
     // console.log(this)
     // $(this).append('<div id=popUpTemplate></div>')
   $.ajax({
-<<<<<<< HEAD
     url: "//www.simplavortaro.org/api/v1/trovi/" + vorto,
     "type": "GET",
-=======
-    "url": "https://simplavortaro.org/api/v1/trovi/" + vorto,
-    "method": "GET",
->>>>>>> c113b0c27c07050cebd0ccf8e73e514080b5d089
     "success": function(data) {
       console.log('ajax call was good.')
       // console.log("this is the preciza datumo")
@@ -64,11 +59,7 @@ $('.wikipediaArticleText').click(function(event) {
 
   wordProcessor()
       $.ajax({
-<<<<<<< HEAD
         "url": "//www.simplavortaro.org/api/v1/vorto/" + processedWord,
-=======
-        "url": "https://www.simplavortaro.org/api/v1/vorto/" + processedWord,
->>>>>>> c113b0c27c07050cebd0ccf8e73e514080b5d089
         "method": "GET",
         "success": function(dataB) {
           console.log("dis da dataB")
