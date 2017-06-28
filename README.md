@@ -20,7 +20,7 @@ Technologies Used
     * **[mustache.js](https://github.com/janl/mustache.js)** templating system
     * **[session](https://github.com/expressjs/session)** session middleware
     * **[cheerio](https://github.com/cheeriojs/cheerio)** access to jQuery in Node.js
-    * **[https://github.com/kelektiv/node.bcrypt.js](bcrpyt.js)** for hashing passwords
+    * **[bycrpt](https://github.com/kelektiv/node.bcrypt.js)** for hashing passwords
 * CSS
     * **[Bootstrap](http://getbootstrap.com)**
 
