@@ -12,7 +12,7 @@ var session = require('express-session');
 var http = require('http');
 
 
-const bcrypt = require('bcryptjs')
+const bcrypt = require('bcryptjs');
 
 var util = require('util');
 
@@ -54,14 +54,14 @@ app.get("/", function(req, res) {
   if (req.session.user) {
     logged_in = true;
     email = req.session.user.email;
-    name=req.session.user.name;
+    name = req.session.user.name;
     id = req.session.user.id
   }
   var data = {
     "logged_in": logged_in,
     "email": email,
     "id": id,
-    "name":name
+    "name": name
   }
   res.render('index', data)
 })
@@ -127,19 +127,19 @@ app.post('/login', function(req, res) {
 //how to save a new word
 app.post("/addWord", function(req, res) {
 
-    var data = req.body
-    theId=req.session.user.id
-    db.none(
-        "INSERT INTO lists (word, definition, user_id) VALUES ($1, $2, $3)", [data.word, data.definition, theId]
-      )
-      .catch(function() {
-        console.log("word not added, error.")
-      })
-      .then(function() {
-        console.log("word added")
-        res.render('wiki/articleTemplate')
-      })
-  })
+  var data = req.body
+  theId = req.session.user.id
+  db.none(
+      "INSERT INTO lists (word, definition, user_id) VALUES ($1, $2, $3)", [data.word, data.definition, theId]
+    )
+    .catch(function() {
+      console.log("word not added, error.")
+    })
+    .then(function() {
+      console.log("word added")
+      res.render('wiki/articleTemplate')
+    })
+})
 
 
 //this renders the article available to the user
@@ -151,14 +151,14 @@ app.get('/wiki/template', function(req, res) {
   if (req.session.user) {
     logged_in = true;
     email = req.session.user.email;
-    name=req.session.user.name;
+    name = req.session.user.name;
     id = req.session.user.id
   }
   var data = {
     "logged_in": logged_in,
     "email": email,
     "id": id,
-    "name":name
+    "name": name
   }
 
 
@@ -198,21 +198,23 @@ app.get('/wiki/template', function(req, res) {
 
 
 //this renders the list of words belonging to the currently logged in user
-app.get('/words/:user_id',function(req, res, err){
-    user_id=req.session.user.id
+app.get('/words/:user_id', function(req, res, err) {
+  user_id = req.session.user.id
   db.many('SELECT * FROM lists where user_id= $1', [user_id])
-    .catch(function(){
-    console.log("error in word list rendering, sorry. ")
-  })
-  .then(function(data){
-    res.render('words/words:show', {"vortoj":data});
+    .catch(function() {
+      console.log("error in word list rendering, sorry. ")
+    })
+    .then(function(data) {
+      res.render('words/words:show', {
+        "vortoj": data
+      });
 
-  });
+    });
 
 });
 
 //delete a word from the word list
-app.delete('/:id',function(req, res){
+app.delete('/:id', function(req, res) {
   id = req.params.id
   console.log(id)
   db.none("DELETE FROM lists WHERE id=$1", [id])
@@ -221,20 +223,19 @@ app.delete('/:id',function(req, res){
 
 //update user's name
 
-app.put('/update/:id',function(req, res){
+app.put('/update/:id', function(req, res) {
   user = req.body
   id = req.params.id
 
-  db.none("UPDATE users SET name=$1, email=$2 WHERE id=$3",
-    [user.name,user.email,id]).then(function(){
-          req.session.destroy()
-          res.redirect('/')
-    })
+  db.none("UPDATE users SET name=$1, email=$2 WHERE id=$3", [user.name, user.email, id]).then(function() {
+    req.session.destroy()
+    res.redirect('/')
+  })
 });
 
 
 //to log
-app.get('/logout', function(req, res){
-            req.session.destroy()
-          res.redirect('/')
+app.get('/logout', function(req, res) {
+  req.session.destroy()
+  res.redirect('/')
 })
