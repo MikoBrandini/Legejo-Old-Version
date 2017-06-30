@@ -47,10 +47,9 @@
     <div class="border-container ">
         <div class="col-lg-6 center-block">
             <div class="alert alert-success">
-                  <br />
                    {{^logged_in}}
                   <h4>
-                   Legejo is a website for learners of <a href="https://en.wikipedia.org/wiki/Esperanto" target="_blank ">Esperanto</a>.
+                   Legejo is a website for learners of <a href="https://en.wikipedia.org/wiki/Esperanto" target="_blank">Esperanto</a>.
                    <br />
                    Every day a new article is provided for your reading pleasure!
                    <br />
@@ -61,8 +60,7 @@
                 <h4>Welcome {{name}}!</h4>
 
                 <h3>Today's Article:
-      <a href="/wiki/template">Francio</a></h3>
-                {{#logged_in}}
+                <a href="/wiki/template">Francio</a></h3>
                 <h1>Settings</h1>
                 <p>Warning: Updating this will log you out.</p>
                 <form method="POST" action="/update/{{id}}?_method=PUT">
