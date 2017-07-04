@@ -1,0 +1,16 @@
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS lists CASCADE;
+
+CREATE TABLE users(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255),
+  email VARCHAR (255),
+  password_digest VARCHAR(255)
+);
+
+CREATE TABLE lists(
+id SERIAL PRIMARY KEY,
+word VARCHAR(255),
+definition VARCHAR(255),
+user_id INTEGER REFERENCES users(id)
+)

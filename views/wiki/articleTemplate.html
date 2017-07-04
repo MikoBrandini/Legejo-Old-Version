@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Artikolo</title>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Legejo</a>
+            </div>
+            <ul class="nav nav-pills">
+                <li><a href="/" title="homepage">Main Page</a>
+                </li>
+                <li class="active"><a href="/wiki/template" title="article">Article</a>
+                </li>
+                {{#logged_in}}
+                <li><a title="words" href="/words/{{id}}">Words</a>
+                </li>
+                {{/logged_in}}
+                <ul class="nav navbar-nav navbar-right">
+                    {{#logged_in}}
+                    <li><a href="/logout" title="logout">Log Out</a>
+                    </li>
+                    {{/logged_in}}
+
+                </ul>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="popUpContainer" class="col-12 center-block container-fluid">
+
+        <button class="close">&times;</button>
+        <div id="popUpTemplate" class="alert alert-success" role="alert">
+        </div>
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button id="saviorTheButton" type="submit" class="btn btn-primary">Save the word!</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-10 center-block  container">
+        {{#wikiData}}
+
+
+        {{#lead}}
+        <span class="col-md-10 textHolders">{{displaytitle}}</span>
+        <span class="col-md-10 textHolders ">{{description}}</span>
+        <span class="col-md-10 textHolders ">{{#sections}}</span>
+        <span class="col-md-10 textHolders ">{{{text}}}</span> {{/sections}} {{/lead}} {{#remaining}} {{#sections}}
+        <span class="col-md-10  textHolders"> {{{text}}}</span> {{/sections}} {{/remaining}}
+
+        {{/wikiData}}
+        <script src="/js/jquery.js"></script>
+        <script src="/js/script.js"></script>
+    </div>
+</body>
+
+</html>

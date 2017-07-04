@@ -1,0 +1,34 @@
+
+p{
+  text-align:  justify;
+}
+
+
+.heyClowns{
+  background-color:  black;
+  color:  white;
+}
+
+#popUpContainer{
+  display:  none;
+  background-color: #F8F8F8;
+z-index: 1;
+opacity:  1;
+}
+#popUpTemplate{
+  background-color:  DF;
+    height: 400px;
+  overflow-y: scroll;
+}
+/* Made two seperate classes for the text below in order to keep their functionalities apart.
+I don't want the functions that work for one, to work for the other.  */
+.wikipediaArticleText, .popUpText{
+  font-size:  40px;
+}
+
+.close{
+font-size: 100px;}
+
+td, th{
+  font-size:  30px;
+}

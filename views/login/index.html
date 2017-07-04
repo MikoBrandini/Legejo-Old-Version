@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Ensalutejo</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Rye' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Legejo</a>
+            </div>
+            <ul class="nav nav-pills">
+                <li><a href="/" title="homepage">Main Page</a>
+                </li>
+                <li><a href="/wiki/template" title="article">Article</a>
+                </li>
+                {{#logged_in}}
+                <li><a title="words" href="/words/{{id}}">Your Words</a>
+                </li>
+                {{/logged_in}}
+                <ul class="nav navbar-nav navbar-right">
+                    {{#logged_in}}
+                    <li class="active"><a href="/logout" title="logout">Log Out</a>
+                    </li>
+                    {{/logged_in}}
+                    {{^logged_in}}
+                    <li class="active"><a href="/login" title="login">Log In</a>
+                    </li>
+                    {{/logged_in}}
+
+                </ul>
+            </ul>
+        </div>
+    </nav>
+    <div class="border-container">
+
+        <div class="col-lg-6 center-block">
+            <div class="well bs-component">
+                <form class="form-horizontal" action="/login" method="post">
+                    <fieldset>
+                        <legend>Log In Page</legend>
+                        <div class="form-group">
+                            <label for="inputEmail" class="col-lg-2 control-label">Email</label>
+                            <div class="col-lg-10">
+                                <input name="email" type="text" class="form-control" id="inputEmail" placeholder="Retpoŝto">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+                            <div class="col-lg-10">
+                                <input name="password" type="password" class="form-control" id="inputPassword" placeholder="Pasvorto">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-10 col-lg-offset-2">
+                                <button type="submit" class="btn btn-primary">Log In</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+                <h3>Don't have an account? Aliĝu!</h3>
+                <a href="/signup">Sign Up</a>
+                </h3>
+
+                <script src="/js/jquery.js"></script>
+                <script src="/js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "legejo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+   "engines": {
+    "node": "v6.8.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+
+  },
+  "author": "miko",
+  "license": "ISC",
+  "dependencies": {
+    "bcrpyt": "^1.8.7",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.15.2",
+    "cheerio": "^0.22.0",
+    "express": "^4.14.0",
+    "express-session": "^1.14.2",
+    "method-override": "^2.3.7",
+    "mustache": "^2.3.0",
+    "mustache-express": "^1.2.4",
+    "nodemon": "^1.11.0",
+    "pg-promise": "^5.4.3",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1"
+  }
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <title>Ĉefpaĝo</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Rye' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Legejo</a>
+            </div>
+            <ul class="nav nav-pills">
+                <li class="active"><a href="/" title="homepage">Main Page</a>
+                </li>
+                <li><a href="/wiki/template" title="article">Article</a>
+                </li>
+                {{#logged_in}}
+                <li><a title="words" href="/words/{{id}}">Words</a>
+                </li>
+                {{/logged_in}}
+                <ul class="nav navbar-nav navbar-right">
+                    {{#logged_in}}
+                    <li class="active"><a href="/logout" title="logout">Log Out</a>
+                    </li>
+                    {{/logged_in}}
+                    {{^logged_in}}
+                    <li><a href="/login" title="login">Log In</a>
+                    </li>
+                    {{/logged_in}}
+
+                </ul>
+            </ul>
+        </div>
+    </nav>
+
+
+
+    <div class="border-container ">
+        <div class="col-lg-6 center-block">
+            <div class="alert alert-success">
+                   {{^logged_in}}
+                  <h4>
+                   Legejo is a website for learners of <a href="https://en.wikipedia.org/wiki/Esperanto" target="_blank">Esperanto</a>.
+                   <br />
+                   Every day a new article is provided for your reading pleasure!
+                   <br />
+                   <a href="/signup">Create an account</a> and save your favorite words for later review!
+                    </h4>
+                  {{/logged_in}}
+                 {{#logged_in}}
+                <h4>Welcome {{name}}!</h4>
+
+                <h3>Today's Article:
+                <a href="/wiki/template">Francio</a></h3>
+                <h1>Settings</h1>
+                <p>Warning: Updating this will log you out.</p>
+                <form method="POST" action="/update/{{id}}?_method=PUT">
+                    New Name
+                    <input name="name" id="name" value="{{name}}">
+                    <br> New Email
+                    <input name="email" id="email" value="{{email}}">
+                    <br>
+                    <button type="submit">update</button>
+                </form>
+                {{/logged_in}}
+            </div>
+
+
+
+        </div>
+    </div>
+    </div>
+
+
+
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/script.js"></script>
+
+</body>
+
+</html>
