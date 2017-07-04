@@ -1,8 +1,4 @@
 **[Legejo](https://legejo.herokuapp.com/)**
-
-**This repository is no longer updated. Refer to the new repository.**
-**[New Repo](https://github.com/MikoBrandini/Legejo)**
-
 ======
 In Esperanto Legejo (Le-Gey-O) means "reading place". 
 https://legejo.herokuapp.com/
