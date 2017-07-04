@@ -1,5 +1,4 @@
 **[Legejo](https://legejo.herokuapp.com/)**
-<<<<<<< HEAD
 
 **This repository is no longer updated. Refer to the new repository.**
 **[New Repo](https://github.com/MikoBrandini/Legejo)**
